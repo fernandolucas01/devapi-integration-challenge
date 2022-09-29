@@ -26,7 +26,7 @@ export class HubspotService {
     const contactsToSendToHubspot = allContacteDetails.filter(
       (contact) =>
         emailPattern.test(contact.email) &&
-        !(freeEmailDomains as string[]).includes(contact.email),
+        !(freeEmailDomains as string[]).includes(contact.email.split('@')[1]),
     );
 
     try {

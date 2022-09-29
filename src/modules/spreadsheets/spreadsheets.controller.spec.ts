@@ -40,7 +40,7 @@ describe('SpreadsheetsController', () => {
     const allContacts = await spreadsheetsController.index();
 
     expect(allContacts[0]).toHaveProperty('email');
-  });
+  }, 99999);
 
   it('should not be able to create a spreadsheet row with already existing email', async () => {
     await expect(async () => {
@@ -54,7 +54,7 @@ describe('SpreadsheetsController', () => {
 
       await spreadsheetsController.createRow(contactDetails);
     }).rejects.toBeInstanceOf(ConflictException);
-  });
+  }, 99999);
 
   it('should be able to update an existent spreadsheet row', async () => {
     const contactDetails: ContactDetails = {
@@ -77,7 +77,7 @@ describe('SpreadsheetsController', () => {
 
     expect(allRows).toBeInstanceOf(Array);
     expect(allRows[0]).toHaveProperty('email');
-  });
+  }, 99999);
 
   it('should be able to delete an spreadsheet row', async () => {
     const email = 'janedoe@devapi.com.br';
@@ -85,7 +85,7 @@ describe('SpreadsheetsController', () => {
     const allRows = await spreadsheetsController.index();
 
     expect(allRows.length).toEqual(0);
-  });
+  }, 99999);
 
   it('should throw an exception when the SPREADSHEET_ID is invalid', async () => {
     process.env.SPREADSHEET_ID = 'TEST';
@@ -93,7 +93,7 @@ describe('SpreadsheetsController', () => {
     await expect(async () => {
       await spreadsheetsController.index();
     }).rejects.toBeInstanceOf(BadRequestException);
-  });
+  }, 99999);
 
   it('should throw an exception when the SHEETS_EMAIL is invalid', async () => {
     process.env.SHEETS_EMAIL = 'test@email.com';
@@ -101,7 +101,7 @@ describe('SpreadsheetsController', () => {
     await expect(async () => {
       await spreadsheetsController.index();
     }).rejects.toBeInstanceOf(BadRequestException);
-  });
+  }, 99999);
 
   it('should throw an exception when the SHEETS_PRIVATE_KEY is invalid', async () => {
     process.env.SHEETS_PRIVATE_KEY = '1234';
@@ -109,5 +109,5 @@ describe('SpreadsheetsController', () => {
     await expect(async () => {
       await spreadsheetsController.index();
     }).rejects.toBeInstanceOf(BadRequestException);
-  });
+  }, 99999);
 });

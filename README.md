@@ -82,7 +82,7 @@ All endpoints built into the application are available in a [JSON file](https://
 **GET**  `/hubspot/contacts/{id}`
 - Returns the contact details from the Hubspot CRM, sometimes the integration takes some time, it may not return the contacts immediately, but just wait a little bit.
 
-**DELETE**  `/hubspot/contacts`
+**DELETE**  `/hubspot/contacts/{id}`
 - It deletes a contact saved in hubspot crm.
 
 Auxiliary endpoints were also created, they allow to manipulate the hubspot spreadsheet and contacts.
